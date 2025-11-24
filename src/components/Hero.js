@@ -10,9 +10,9 @@ export default function Hero() {
         aria-hidden="true"
       />
       <div className="container hero-content">
-        <h1>Bringing You Closer To Home</h1>
+        <h1>Byaheng masaya serbisyong subok na!</h1>
         <p>
-          Experience the flagship JAC Way—where we give you the best service,
+          Experience the flagship Philtranco Way—where we give you the best service,
           ensuring a safe and comfortable ride on every journey.
         </p>
         <button className="btn-red">Book Now</button>

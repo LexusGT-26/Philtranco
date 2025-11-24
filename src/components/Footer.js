@@ -6,7 +6,7 @@ export default function Footer() {
           <h5>For more inquiries and concerns</h5>
           <ul>
             <li className="highlight">09XX-XXX-XXXX</li>
-            <li>info@jacliner.com</li>
+            <li>info@philtranco.com</li>
           </ul>
           <br />
           <h5>Connect with Us</h5>
@@ -26,7 +26,7 @@ export default function Footer() {
       <div className="skyline" />
 
       <div className="copyright">
-        &copy; {new Date().getFullYear()} JAC Liner Inc. All rights reserved.
+        &copy; {new Date().getFullYear()} Philtranco. All rights reserved.
       </div>
     </footer>
   );

@@ -11,9 +11,9 @@ export default function About() {
         </div>
         <div className="about-text">
           <h4>About</h4>
-          <h2>Bringing You Closer to Home</h2>
+          <h2>Byaheng masaya serbisyong subok na!</h2>
           <p>
-            Since 1987, JAC Liner Inc. has been your trusted partner on the
+            Since 1987, Philtranco has been your trusted partner on the
             road, connecting you to key destinations across Southern Tagalog.
             Our commitment to safe, reliable, and comfortable travel remains
             unwavering.
@@ -21,7 +21,7 @@ export default function About() {
           <p>
             We take pride in our modern fleet, meticulous maintenance
             standards, and well-trained personnel who make every ride feel like
-            home. Wherever you are headed, the JAC Way keeps you moving.
+            home. Wherever you are headed, the Philtranco Way keeps you moving.
           </p>
         </div>
       </div>

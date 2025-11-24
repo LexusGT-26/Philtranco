@@ -8,9 +8,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "JAC Liner Inc. | Bringing You Closer To Home",
+  title: "Philtranco | Byaheng masaya serbisyong subok na!",
   description:
-    "Experience the flagship JAC Way—safe, comfortable, and premium rides to Southern Tagalog destinations.",
+    "Experience the flagship Philtranco Way—safe, comfortable, and premium rides to Southern Tagalog destinations.",
 };
 
 export default function RootLayout({ children }) {
