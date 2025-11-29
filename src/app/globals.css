@@ -62,54 +62,99 @@ ul {
 }
 
 .top-bar {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #1a1a1a;
   color: #fff;
-  font-size: 0.8rem;
-  padding: 8px 0;
+  font-size: 0.85rem;
+  padding: 12px 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 30;
 }
 
-.top-bar .container {
+.top-bar-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 15px;
+}
+
+.top-bar-left,
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.top-bar-item {
+  display: flex;
+  align-items: center;
   gap: 8px;
+  white-space: nowrap;
+}
+
+.top-bar-item svg {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover {
+  opacity: 0.7;
 }
 
 nav {
   position: fixed;
-  top: 40px;
+  top: 45px;
   width: 100%;
   z-index: 25;
   padding: 20px 0;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .logo {
-  color: #ffffff;
+  color: var(--jac-red);
   font-weight: 900;
-  font-size: 1.5rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .logo .logo-mark {
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
   flex-shrink: 0;
   border-radius: 50%;
   background: #ffffff;
-  padding: 4px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 4px solid #ffd700;
+  position: relative;
 }
 
 .hero {
@@ -121,6 +166,7 @@ nav {
   text-align: center;
   color: #fff;
   padding: 0 20px;
+  overflow: hidden;
 }
 
 .hero video {
@@ -131,33 +177,73 @@ nav {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  filter: brightness(0.8);
+  filter: brightness(0.75);
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero-content h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  margin-bottom: 15px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 20px;
   font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
 }
 
 .hero-content p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  max-width: 600px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  margin-bottom: 35px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+}
+
+.hero-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  z-index: 3;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.hero-nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-nav-left {
+  left: 30px;
+}
+
+.hero-nav-right {
+  right: 30px;
 }
 
 .about {
@@ -397,19 +483,71 @@ footer {
 
 @media (max-width: 768px) {
   .top-bar {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    padding: 8px 0;
+  }
+
+  .top-bar-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .top-bar-left,
+  .top-bar-right {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .top-bar-right {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .top-bar-item {
+    font-size: 0.7rem;
   }
 
   nav {
-    top: 60px;
+    top: 50px;
+    padding: 15px 0;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .logo .logo-mark {
+    width: 55px;
+    height: 55px;
   }
 
   .hero {
     min-height: 70vh;
+    padding: 0 10px;
   }
 
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .hero-nav-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-nav-left {
+    left: 10px;
+  }
+
+  .hero-nav-right {
+    right: 10px;
   }
 
   .footer-grid {
