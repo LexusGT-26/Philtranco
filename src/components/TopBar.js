@@ -1,6 +1,36 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 export default function TopBar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const heroSection = document.getElementById('hero');
+    if (!heroSection) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // If hero is not in viewport, we're scrolled
+          setIsScrolled(!entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of hero is visible
+        rootMargin: '-100px 0px', // Add margin for earlier trigger
+      }
+    );
+
+    observer.observe(heroSection);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="top-bar">
+    <div className={`top-bar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container top-bar-content">
         <div className="top-bar-left">
           <span className="top-bar-item">
