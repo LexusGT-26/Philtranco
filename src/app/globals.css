@@ -387,7 +387,12 @@ nav.scrolled .logo {
 
 .destinations .subtitle {
   color: #777777;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.destinations-gallery {
+  min-height: auto !important;
 }
 
 .cards-scroller {

@@ -15,10 +15,12 @@ export default function Destinations() {
   return (
     <section className="destinations" id="destinations">
       <div className="container">
-        <h2 className="section-title">Discover the Wonders of South</h2>
-        <p className="subtitle">
-          Explore a world of attractions during your journey with us.
-        </p>
+        <div className="text-center mb-16 -mt-8">
+          <h2 className="section-title">Discover the Wonders of South</h2>
+          <p className="subtitle">
+            Explore a world of attractions during your journey with us.
+          </p>
+        </div>
 
         <ThreeDHoverGallery
           images={DESTINATION_IMAGES}
