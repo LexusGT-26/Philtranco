@@ -29,7 +29,10 @@ export default function Features() {
       </div>
 
       {/* Main content container */}
-      <div className="max-w-[1200px] mx-auto px-5 relative z-10 w-full py-20">
+      <div className="max-w-[1200px] mx-auto px-5 relative z-10 w-full pt-0 pb-20">
+        {/* Section Title */}
+        <h2 className="section-title text-center mb-12 -mt-32 pt-8">Sakay kana</h2>
+        
         {/* Cards container */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 justify-items-center">
           {/* Card 1 */}

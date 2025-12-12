@@ -34,7 +34,7 @@ export default function Nav() {
       <div className="container nav-wrapper">
         <div className="logo">
           <img
-            src="/philtranco-logo.svg"
+            src="/logo-removebg-preview (1).png"
             alt="Philtranco logo"
             className="logo-mark"
           />
