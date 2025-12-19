@@ -38,7 +38,7 @@ export default function Nav() {
             alt="Philtranco logo"
             className="logo-mark"
           />
-          PHILTRANCO
+          <span className="logo-text">Philtranco</span>
         </div>
       </div>
     </nav>

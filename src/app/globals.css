@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Philtranco";
+  src: url("/fonts/Philtranco.woff2") format("woff2"),
+       url("/fonts/Philtranco.woff") format("woff"),
+       url("/fonts/Philtranco.ttf") format("truetype"),
+       url("/fonts/Philtranco.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --jac-red: #e31e24;
   --jac-dark: #151515;
@@ -163,13 +174,19 @@ nav.scrolled .logo {
 
 .logo {
   color: #fff;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1.25rem;
   display: flex;
   align-items: center;
   gap: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+}
+
+.logo-text {
+  font-family: "Philtranco", var(--font-oswald), "Oswald", Arial, sans-serif !important;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: none !important;
 }
 
 .logo .logo-mark {
