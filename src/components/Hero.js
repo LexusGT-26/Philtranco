@@ -15,9 +15,9 @@ export default function Hero() {
         </svg>
       </button>
       <div className="container hero-content">
-        <h1>Bringing You Closer To Home</h1>
+        <h1>Byaheng masaya serbisyong subok na !</h1>
         <p>
-          Experience the Alagang Philtranco Way where we give you the best service, ensuring a safe and comfortable ride, while helping you get closer to what matters to you most.
+          Working always for fast, safe, and reliable service since 1914 a legacy of trusted public transportation, providing dependable and comfortable journeys for generations of passengers.
         </p>
         <button className="btn-red">Book Now</button>
       </div>
