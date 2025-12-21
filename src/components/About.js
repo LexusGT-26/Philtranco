@@ -4,8 +4,8 @@ export default function About() {
       <div className="container about-grid">
         <div className="about-img">
           <img
-            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1000&q=80"
-            alt="Bus Terminal"
+            src="/Philtranco.webp"
+            alt="Philtranco Bus"
             loading="lazy"
           />
         </div>
@@ -13,15 +13,10 @@ export default function About() {
           <h4>About</h4>
           <h2>Philtranco</h2>
           <p>
-            Since 1987, Philtranco has been your trusted partner on the
-            road, connecting you to key destinations across Southern Tagalog.
-            Our commitment to safe, reliable, and comfortable travel remains
-            unwavering.
+            July 1 when a young enterprising American serviceman Albert Louise Ammen together with another American, Max Blouse organized a small transportation company in Iriga, Camarines Sur, with an initial fleet of one (1) auto-truck. He called the company ALATCO or the A.L. Ammen Transport Co., Inc. Its first route was Iriga-Naga.
           </p>
           <p>
-            We take pride in our modern fleet, meticulous maintenance
-            standards, and well-trained personnel who make every ride feel like
-            home. Wherever you are headed, the Philtranco Way keeps you moving.
+            Mr. Ammen's venture into the transport business had become so successful that soon he expanded his fleet to service the other towns of Camarines Sur, Camarines Norte, Albay and Sorsogon. ALATCO became the principal carrier in the Bicol region, inaugurating highway travel that was to open remote villages in the Bicolandia, to the mainstream of economic and social development.
           </p>
         </div>
       </div>
