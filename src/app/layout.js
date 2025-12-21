@@ -14,7 +14,7 @@ const oswald = Oswald({
 });
 
 export const metadata = {
-  title: "Philtranco | Byaheng masaya serbisyong subok na!",
+  title: "Philtranco",
   description:
     "Experience the flagship Philtranco Way—safe, comfortable, and premium rides to Southern Tagalog destinations.",
 };

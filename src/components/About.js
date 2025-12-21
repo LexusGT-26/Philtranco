@@ -11,7 +11,7 @@ export default function About() {
         </div>
         <div className="about-text">
           <h4>About</h4>
-          <h2>Byaheng masaya serbisyong subok na!</h2>
+          <h2>Philtranco</h2>
           <p>
             Since 1987, Philtranco has been your trusted partner on the
             road, connecting you to key destinations across Southern Tagalog.
