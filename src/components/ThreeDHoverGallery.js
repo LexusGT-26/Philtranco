@@ -39,6 +39,9 @@ const ThreeDHoverGallery = ({
   const containerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(null);
   const [focusedIndex, setFocusedIndex] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const autoPlayRef = useRef(null);
 
   // Effect for auto-play functionality
@@ -73,10 +76,34 @@ const ThreeDHoverGallery = ({
 
   // Handler for image click event
   const handleImageClick = (index, image) => {
-    // Toggle active state: if clicked item is already active, deactivate it
+    // Open modal with slow motion effect
+    setSelectedImage(image);
+    setIsModalOpen(true);
     setActiveIndex(activeIndex === index ? null : index);
     onImageClick?.(index, image);
   };
+
+  // Handler for closing modal
+  const handleCloseModal = () => {
+    setIsClosing(true);
+    // Delay closing for smooth fade-out animation
+    setTimeout(() => {
+      setIsModalOpen(false);
+      setIsClosing(false);
+      setSelectedImage(null);
+    }, 2500); // Match the fade-out duration
+  };
+
+  // Close modal on Escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        handleCloseModal();
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isModalOpen]);
 
   // Handler for image hover (mouse enter) event
   const handleImageHover = (index, image) => {
@@ -158,40 +185,92 @@ const ThreeDHoverGallery = ({
   };
 
   return (
-    <div
-      className={cn(
-        "flex items-center justify-center min-h-screen w-full overflow-hidden bg-background",
-        className
-      )}
-      style={backgroundColor ? { backgroundColor, ...style } : style}
-    >
+    <>
       <div
-        ref={containerRef}
-        className="flex justify-center items-center w-full"
-        style={{
-          perspective: `calc(${perspective}vw + ${perspective}vh)`,
-          gap: `${gap}rem`,
-        }}
+        className={cn(
+          "flex items-center justify-center min-h-screen w-full overflow-hidden bg-background",
+          className
+        )}
+        style={backgroundColor ? { backgroundColor, ...style } : style}
       >
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className="relative will-change-transform rounded-lg shadow-lg"
-            style={getItemStyle(index)}
-            tabIndex={enableKeyboardNavigation ? 0 : -1}
-            onClick={() => handleImageClick(index, image)}
-            onMouseEnter={() => handleImageHover(index, image)}
-            onMouseLeave={handleImageLeave}
-            onFocus={() => handleImageFocus(index, image)}
-            onBlur={() => setFocusedIndex(null)}
-            onKeyDown={(e) => handleKeyDown(e, index)}
-            role="button"
-            aria-label={`Image ${index + 1} of ${images.length}`}
-            aria-pressed={activeIndex === index}
-          />
-        ))}
+        <div
+          ref={containerRef}
+          className="flex justify-center items-center w-full"
+          style={{
+            perspective: `calc(${perspective}vw + ${perspective}vh)`,
+            gap: `${gap}rem`,
+          }}
+        >
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className="relative will-change-transform rounded-lg shadow-lg"
+              style={getItemStyle(index)}
+              tabIndex={enableKeyboardNavigation ? 0 : -1}
+              onClick={() => handleImageClick(index, image)}
+              onMouseEnter={() => handleImageHover(index, image)}
+              onMouseLeave={handleImageLeave}
+              onFocus={() => handleImageFocus(index, image)}
+              onBlur={() => setFocusedIndex(null)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
+              role="button"
+              aria-label={`Image ${index + 1} of ${images.length}`}
+              aria-pressed={activeIndex === index}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+
+      {/* Modal with Slow Motion Effects */}
+      {isModalOpen && selectedImage && (
+        <div
+          className={`fixed inset-0 z-[9999] flex items-center justify-center ${
+            isClosing ? 'slow-fade-out' : 'slow-fade-in'
+          }`}
+          onClick={handleCloseModal}
+        >
+          {/* Backdrop with slow fade-in */}
+          <div className={`absolute inset-0 bg-black ${
+            isClosing ? 'slow-fade-out' : 'slow-fade-in'
+          }`} />
+
+          {/* Modal Content with slow scale-up */}
+          <div
+            className={`relative z-10 max-w-7xl max-h-[90vh] w-full mx-4 ${
+              isClosing ? 'slow-scale-down' : 'slow-scale-up'
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage}
+              alt="Full size view"
+              className="w-full h-auto rounded-lg shadow-2xl object-contain max-h-[90vh]"
+            />
+
+            {/* Close Button with slow fade-in */}
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 bg-black/70 hover:bg-black/90 text-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-500 backdrop-blur-sm slow-fade-in-delayed"
+              aria-label="Close modal"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
